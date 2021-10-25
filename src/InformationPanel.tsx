@@ -12,16 +12,17 @@ const InformationPanel = React.memo((props: InformationPanel) => {
     useEffect(() => {
         setWorkingValue(props.value)
     }, [props.value])
+    useEffect(() => {
+        let valueLocalSorage = Number(localStorage.getItem("startValue"))
+        if (workingValue !== valueLocalSorage) {
+            setWorkingValue(valueLocalSorage)
+        }
+    }, [])
 
 
     const Increment = () => {
         if (props.maxValue > workingValue) {
             setWorkingValue(workingValue + 1)
-        }
-    }
-    const Decrement = () => {
-        if (workingValue > props.value) {
-            setWorkingValue(workingValue - 1)
         }
     }
     const Reset = () => {
@@ -34,7 +35,6 @@ const InformationPanel = React.memo((props: InformationPanel) => {
         </div>
         <div className={s.control}>
             <button onClick={Increment}>Inc</button>
-            <button onClick={Decrement}>Decr</button>
             <button onClick={Reset}>Reset</button>
         </div>
     </div>

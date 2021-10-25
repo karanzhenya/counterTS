@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import s from './App.module.css';
 import Settings from "./Settings";
 import InformationPanel from "./InformationPanel";
@@ -10,14 +10,23 @@ const App = () => {
     const [maxValue, setMaxValue] = useState<number>(10);
     const [value, setValue] = useState<number>(0);
 
+    useEffect(() => {
+        let localStorageStartValue = Number(localStorage.getItem("startValue"))
+        let localStorageMaxValue = Number(localStorage.getItem("maxValue"))
+        setStartValue(localStorageStartValue)
+        setMaxValue(localStorageMaxValue)
+    }, [])
+
     const startValueSuccess = (propStartValue: number) => {
         setStartValue(propStartValue)
+        localStorage.setItem("startValue", String(propStartValue))
     };
     const maxValueSuccess = (propMaxValue: number) => {
         setMaxValue(propMaxValue)
+        localStorage.setItem("maxValue", String(propMaxValue))
     };
     const valueSuccess = () => {
-       setValue(startValue)
+        setValue(startValue)
     };
 
     return <div className={s.appWrapper}>
