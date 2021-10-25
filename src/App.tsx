@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import s from './App.module.css';
+import Settings from "./Settings";
+import InformationPanel from "./InformationPanel";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+const App = () => {
+
+    const [startValue, setStartValue] = useState<number>(0);
+    const [maxValue, setMaxValue] = useState<number>(10);
+    const [value, setValue] = useState<number>(0);
+
+    const startValueSuccess = (propStartValue: number) => {
+        setStartValue(propStartValue)
+    };
+    const maxValueSuccess = (propMaxValue: number) => {
+        setMaxValue(propMaxValue)
+    };
+    const valueSuccess = () => {
+       setValue(startValue)
+    };
+
+    return <div className={s.appWrapper}>
+        <div>
+            <Settings maxValue={maxValue}
+                      startValue={startValue}
+                      startValueSuccess={startValueSuccess}
+                      maxValueSuccess={maxValueSuccess}
+                      valueSuccess={valueSuccess}
+            />
+        </div>
+        <div>
+            <InformationPanel value={value} maxValue={maxValue}/>
+        </div>
     </div>
-  );
 }
 
 export default App;

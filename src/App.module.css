@@ -1,0 +1,53 @@
+.appWrapper {
+  padding: 5px;
+  margin: 10px;
+  display: grid;
+  border: 3px solid green;
+  grid-template-columns: repeat(2, 1fr);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.settings {
+  display: grid;
+  justify-content: center;
+  width: 330px;
+  height: 170px;
+  border: 1px solid red;
+}
+
+.customization {
+  display: grid;
+  width: 300px;
+  height: 100px;
+  border: 1px solid black;
+}
+
+.maxValue {
+  display: flex;
+  width: 280px;
+  height: 25px;
+}
+
+.startValue {
+  display: flex;
+  width: 280px;
+  height: 25px;
+}
+
+.enterCuztomization {
+  display: flex;
+  justify-self: center;
+}
+
+.controlInformationPanel {
+  display: grid;
+  border: 1px solid blue
+}
+
+.info {
+  display: flex;
+  border: 1px solid orange;
+  justify-self: center;
+}
