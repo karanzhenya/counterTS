@@ -2,12 +2,12 @@ import React, {useEffect, useState} from 'react';
 import s from './App.module.css';
 
 
-type InformationPanel = {
+type InformationPanelType = {
     value: number
     maxValue: number
 }
 
-const InformationPanel = React.memo((props: InformationPanel) => {
+const InformationPanel = React.memo((props: InformationPanelType) => {
     const [workingValue, setWorkingValue] = useState(props.value)
     useEffect(() => {
         setWorkingValue(props.value)
@@ -31,7 +31,7 @@ const InformationPanel = React.memo((props: InformationPanel) => {
 
     return <div className={s.controlInformationPanel}>
         <div className={s.info}>
-            {workingValue}
+            <h1>{workingValue}</h1>
         </div>
         <div className={s.control}>
             <button onClick={Increment}>Inc</button>

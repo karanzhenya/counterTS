@@ -30,7 +30,7 @@ const App = () => {
     };
 
     return <div className={s.appWrapper}>
-        <div>
+        <div className={s.settingsBlock}>
             <Settings maxValue={maxValue}
                       startValue={startValue}
                       startValueSuccess={startValueSuccess}
@@ -38,7 +38,7 @@ const App = () => {
                       valueSuccess={valueSuccess}
             />
         </div>
-        <div>
+        <div className={s.informationPanelBlock}>
             <InformationPanel value={value} maxValue={maxValue}/>
         </div>
     </div>

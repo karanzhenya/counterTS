@@ -1,53 +1,91 @@
 .appWrapper {
-  padding: 5px;
-  margin: 10px;
-  display: grid;
-  border: 3px solid green;
-  grid-template-columns: repeat(2, 1fr);
-  position: absolute;
-  left: 0;
-  top: 0;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    position: absolute;
+    top: 270px;
+    left: 340px;
+    gap: 30px;
+}
+
+.settingsBlock {
+    display: grid;
+
+}
+
+.informationPanelBlock {
+    display: grid;
 }
 
 .settings {
-  display: grid;
-  justify-content: center;
-  width: 330px;
-  height: 170px;
-  border: 1px solid red;
-}
-
-.customization {
-  display: grid;
-  width: 300px;
-  height: 100px;
-  border: 1px solid black;
-}
-
-.maxValue {
-  display: flex;
-  width: 280px;
-  height: 25px;
-}
-
-.startValue {
-  display: flex;
-  width: 280px;
-  height: 25px;
-}
-
-.enterCuztomization {
-  display: flex;
-  justify-self: center;
+    display: grid;
+    padding: 10px;
+    color: aqua;
+    justify-content: space-around;
+    align-content: space-around;
+    width: 400px;
+    height: 200px;
+    border: 4px solid aqua;
+    border-radius: 10px;
+    gap: 10px;
 }
 
 .controlInformationPanel {
-  display: grid;
-  border: 1px solid blue
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid aqua;
+    border-radius: 10px;
 }
 
+.customization {
+    display: grid;
+    justify-content: center;
+    align-self: center;
+    width: 300px;
+    height: 100px;
+    border: 3px solid aqua;
+    border-radius: 10px;
+}
+
+.maxValue {
+    display: flex;
+    width: 280px;
+    height: 25px;
+}
+
+.startValue {
+    display: flex;
+    width: 280px;
+    height: 25px;
+}
+
+.enterCuztomization {
+    display: flex;
+    justify-self: center;
+    border: 3px solid aqua;
+    padding: 20px 131px;
+    border-radius: 10px;
+}
+
+
 .info {
-  display: flex;
-  border: 1px solid orange;
-  justify-self: center;
+    display: grid;
+    color: aqua;
+    justify-content: center;
+    border-radius: 10px;
+    align-items: center;
+    width: 340px;
+    height: 130px;
+    border: 3px solid aqua;
+}
+
+.control {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 5px;
+    border-radius: 10px;
+    justify-items: center;
+    border: 3px solid aqua;
 }
