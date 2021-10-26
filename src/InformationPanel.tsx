@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import s from './App.module.css';
+import Button from "./Button";
 
 
 type InformationPanelType = {
@@ -34,8 +35,8 @@ const InformationPanel = React.memo((props: InformationPanelType) => {
             <h1>{workingValue}</h1>
         </div>
         <div className={s.control}>
-            <button onClick={Increment}>Inc</button>
-            <button onClick={Reset}>Reset</button>
+            <Button onClick={Increment}>Inc</Button>
+            <Button onClick={Reset}>Reset</Button>
         </div>
     </div>
 })

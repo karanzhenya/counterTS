@@ -18,10 +18,10 @@ const Customization = React.memo((props: CustomizationPropsType) => {
     }
     return <div className={s.customization}>
         <div className={s.maxValue}><h3>
-            max value: <input value={props.maxValue} type={'number'} onChange={maxValueSuccess}></input>
+            max value: <input className={s.input} value={props.maxValue} type={'number'} onChange={maxValueSuccess}></input>
         </h3></div>
         <div className={s.startValue}><h3>
-            start value: <input value={props.startValue} type={'number'} onChange={startValueSuccess}></input>
+            start value: <input className={s.input} value={props.startValue} type={'number'} onChange={startValueSuccess}></input>
         </h3>
         </div>
     </div>
