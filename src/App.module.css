@@ -68,7 +68,6 @@
     border-radius: 10px;
 }
 
-
 .info {
     display: grid;
     color: aqua;
@@ -78,6 +77,17 @@
     width: 340px;
     height: 130px;
     border: 3px solid aqua;
+}
+
+.errorInfo {
+    display: grid;
+    color: red;
+    justify-content: center;
+    border-radius: 10px;
+    align-items: center;
+    width: 340px;
+    height: 130px;
+    border: 3px solid red;
 }
 
 .control {
@@ -105,6 +115,7 @@
 
 .input {
     display: inline-block;
+    height: 20px;
     text-align: center;
     grid-row-end: auto;
     border: 2px solid aqua;

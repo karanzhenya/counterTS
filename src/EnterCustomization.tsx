@@ -4,6 +4,7 @@ import Button from "./Button";
 
 type EnterCustomizationPropsType = {
     valueSuccess: () => void
+    disabled?: boolean
 }
 
 const EnterCustomization = React.memo((props: EnterCustomizationPropsType) => {

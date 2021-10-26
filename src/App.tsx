@@ -9,6 +9,7 @@ const App = () => {
     const [startValue, setStartValue] = useState<number>(0);
     const [maxValue, setMaxValue] = useState<number>(10);
     const [value, setValue] = useState<number>(0);
+    const [disabled, setDisabled] = useState(false)
 
     useEffect(() => {
         let localStorageStartValue = Number(localStorage.getItem("startValue"))
@@ -18,17 +19,26 @@ const App = () => {
     }, [])
 
     const startValueSuccess = (propStartValue: number) => {
+
         setStartValue(propStartValue)
-        localStorage.setItem("startValue", String(propStartValue))
     };
     const maxValueSuccess = (propMaxValue: number) => {
+        if (propMaxValue <= startValue) {
+            setDisabled(true)
+        }
+        if (propMaxValue > startValue) {
+            setDisabled(false)
+        }
         setMaxValue(propMaxValue)
-        localStorage.setItem("maxValue", String(propMaxValue))
     };
     const valueSuccess = () => {
         setValue(startValue)
-    };
+        localStorage.setItem("startValue", String(startValue))
 
+        localStorage.setItem("maxValue", String(maxValue))
+
+    };
+    console.log(disabled)
     return <div className={s.appWrapper}>
         <div className={s.settingsBlock}>
             <Settings maxValue={maxValue}
@@ -36,10 +46,11 @@ const App = () => {
                       startValueSuccess={startValueSuccess}
                       maxValueSuccess={maxValueSuccess}
                       valueSuccess={valueSuccess}
+                      disabled={disabled}
             />
         </div>
         <div className={s.informationPanelBlock}>
-            <InformationPanel value={value} maxValue={maxValue}/>
+            <InformationPanel value={value} maxValue={maxValue} disabled={disabled}/>
         </div>
     </div>
 }
