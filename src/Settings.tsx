@@ -10,7 +10,8 @@ type SettingsPropsType = {
     startValueSuccess: (propStartValue: number) => void
     maxValueSuccess: (propMaxValue: number) => void
     valueSuccess: () => void
-    disabled?: boolean
+    disabledMax?: boolean
+    disabledStart?: boolean
 }
 
 const Settings = React.memo((props: SettingsPropsType) => {
@@ -19,9 +20,12 @@ const Settings = React.memo((props: SettingsPropsType) => {
                        startValue={props.startValue}
                        startValueSuccess={props.startValueSuccess}
                        maxValueSuccess={props.maxValueSuccess}
-                       disabled={props.disabled}
+                       disabledMax={props.disabledMax}
+                       disabledStart={props.disabledStart}
         />
-        <EnterCustomization valueSuccess={props.valueSuccess}/>
+        <EnterCustomization valueSuccess={props.valueSuccess}
+                            disabledMax={props.disabledMax}
+                            disabledStart={props.disabledStart}/>
     </div>
 })
 

@@ -6,37 +6,30 @@ type CustomizationPropsType = {
     startValue: number
     startValueSuccess: (propStartValue: number) => void
     maxValueSuccess: (propMaxValue: number) => void
-    disabled?: boolean
+    disabledMax?: boolean
+    disabledStart?: boolean
 }
 
 const Customization = React.memo((props: CustomizationPropsType) => {
 
-    const [disabled, setDisabled] = useState(false)
-    useEffect(() => {
-        if(props.startValue < 0) {
-            setDisabled(true)
-        }
-    }, [props.startValue])
-
-    const startValueSuccess = (e: ChangeEvent<HTMLInputElement>) => {
+    const onChangeStartValue = (e: ChangeEvent<HTMLInputElement>) => {
         props.startValueSuccess(e.currentTarget.valueAsNumber)
     }
-    const maxValueSuccess = (e: ChangeEvent<HTMLInputElement>) => {
+    const onChangeMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
         props.maxValueSuccess(e.currentTarget.valueAsNumber)
     }
     return <div className={s.customization}>
         <div className={s.maxValue}><h3>
-            max value: <input className={s.input}
+            max value: <input className={props.disabledMax ? s.inputError : s.input}
                               value={props.maxValue}
                               type={'number'}
-                              onChange={maxValueSuccess}/>
+                              onChange={onChangeMaxValue}/>
         </h3></div>
         <div className={s.startValue}><h3>
-            start value: <input className={s.input}
+            start value: <input className={props.disabledStart ? s.inputError : s.input}
                                 value={props.startValue}
                                 type={'number'}
-                                disabled={disabled}
-                                onChange={startValueSuccess}/>
+                                onChange={onChangeStartValue}/>
         </h3>
         </div>
     </div>

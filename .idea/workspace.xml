@@ -9,7 +9,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Button.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Customization.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customization.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EnterCustomization.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/EnterCustomization.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/InformationPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/InformationPanel.tsx" afterDir="false" />
@@ -95,7 +94,8 @@
       <workItem from="1635104544092" duration="3927000" />
       <workItem from="1635187692963" duration="6958000" />
       <workItem from="1635194828045" duration="6000" />
-      <workItem from="1635275824194" duration="8364000" />
+      <workItem from="1635275824194" duration="9071000" />
+      <workItem from="1635331697077" duration="6171000" />
     </task>
     <servers />
   </component>

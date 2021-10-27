@@ -9,7 +9,8 @@ const App = () => {
     const [startValue, setStartValue] = useState<number>(0);
     const [maxValue, setMaxValue] = useState<number>(10);
     const [value, setValue] = useState<number>(0);
-    const [disabled, setDisabled] = useState(false)
+    const [disabledStartValue, setDisabledStartValue] = useState(false)
+    const [disabledMaxValue, setDisabledMaxValue] = useState(false)
 
     useEffect(() => {
         let localStorageStartValue = Number(localStorage.getItem("startValue"))
@@ -19,26 +20,28 @@ const App = () => {
     }, [])
 
     const startValueSuccess = (propStartValue: number) => {
-
-        setStartValue(propStartValue)
+        if (propStartValue < 0) {
+            setDisabledStartValue(true)
+        }
+        if (propStartValue >= 0) {
+            setDisabledStartValue(false)
+        }
+        propStartValue > startValue ? setStartValue(startValue + 1) : setStartValue(startValue - 1)
     };
     const maxValueSuccess = (propMaxValue: number) => {
-        if (propMaxValue <= startValue) {
-            setDisabled(true)
+        if (propMaxValue <= startValue){
+            setDisabledMaxValue(true)
         }
         if (propMaxValue > startValue) {
-            setDisabled(false)
+            setDisabledMaxValue(false)
         }
-        setMaxValue(propMaxValue)
+        propMaxValue > maxValue ? setMaxValue(maxValue + 1) : setMaxValue(maxValue - 1)
     };
     const valueSuccess = () => {
         setValue(startValue)
         localStorage.setItem("startValue", String(startValue))
-
         localStorage.setItem("maxValue", String(maxValue))
-
     };
-    console.log(disabled)
     return <div className={s.appWrapper}>
         <div className={s.settingsBlock}>
             <Settings maxValue={maxValue}
@@ -46,11 +49,15 @@ const App = () => {
                       startValueSuccess={startValueSuccess}
                       maxValueSuccess={maxValueSuccess}
                       valueSuccess={valueSuccess}
-                      disabled={disabled}
+                      disabledMax={disabledMaxValue}
+                      disabledStart={disabledStartValue}
             />
         </div>
         <div className={s.informationPanelBlock}>
-            <InformationPanel value={value} maxValue={maxValue} disabled={disabled}/>
+            <InformationPanel value={value}
+                              maxValue={maxValue}
+                              disabledMax={disabledMaxValue}
+                              disabledStart={disabledStartValue}/>
         </div>
     </div>
 }

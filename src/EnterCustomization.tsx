@@ -4,12 +4,14 @@ import Button from "./Button";
 
 type EnterCustomizationPropsType = {
     valueSuccess: () => void
-    disabled?: boolean
+    disabledMax?: boolean
+    disabledStart?: boolean
 }
 
 const EnterCustomization = React.memo((props: EnterCustomizationPropsType) => {
+        const disabled = props.disabledMax === true || props.disabledStart === true
         return <div className={s.enterCuztomization}>
-            <Button onClick={() => props.valueSuccess()}>Set</Button>
+            <Button onClick={() => props.valueSuccess()} disabled={disabled}>Set</Button>
         </div>
     }
 )

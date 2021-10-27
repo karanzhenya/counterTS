@@ -7,6 +7,8 @@ type InformationPanelType = {
     value: number
     maxValue: number
     disabled?: boolean
+    disabledMax?: boolean
+    disabledStart?: boolean
 }
 
 const InformationPanel = React.memo((props: InformationPanelType) => {
@@ -17,36 +19,33 @@ const InformationPanel = React.memo((props: InformationPanelType) => {
         setWorkingValue(props.value)
     }, [props.value])
     useEffect(() => {
-
         if (workingValue !== valueLocalSorage) {
             setWorkingValue(valueLocalSorage)
         }
     }, [])
 
-
     const Increment = () => {
-        if (props.maxValue >= workingValue +1) {
+        if (props.maxValue >= workingValue + 1) {
             setWorkingValue(workingValue + 1)
         }
         if (props.maxValue - 1 === workingValue) {
             setDisabledInc(true)
         }
-
-
-
     }
     const Reset = () => {
         setWorkingValue(valueLocalSorage)
         setDisabledInc(false)
     }
-    console.log(disabledInc)
+    let disabled = props.disabledMax || props.disabledStart || disabledInc;
     return <div className={s.controlInformationPanel}>
-        <div className={disabledInc? s.errorInfo: s.info}>
-            {props.disabled ? <div>enter correct values</div>: <h1>{workingValue}</h1>
+        <div className={disabledInc ? s.errorInfo : s.info}>
+            {props.disabledMax ?
+                <div className={s.error}>maximum value cannot be equal to the starting</div> : props.disabledStart ?
+                    <div className={s.error}>starting value cannot be less than zero</div> : <h1>{workingValue}</h1>
             }
         </div>
         <div className={s.control}>
-            <Button onClick={Increment} disabled={disabledInc}>Inc</Button>
+            <Button onClick={Increment} disabled={disabled}>Inc</Button>
             <Button onClick={Reset}>Reset</Button>
         </div>
     </div>

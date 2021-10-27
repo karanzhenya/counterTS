@@ -121,3 +121,20 @@
     border: 2px solid aqua;
     border-radius: 10px;
 }
+
+.inputError {
+    display: inline-block;
+    height: 20px;
+    background-color: palevioletred;
+    text-align: center;
+    grid-row-end: auto;
+    border: 2px solid darkred;
+    border-radius: 10px;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
