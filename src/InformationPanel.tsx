@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import s from './App.module.css';
 import Button from "./Button";
 
@@ -24,19 +24,20 @@ const InformationPanel = React.memo((props: InformationPanelType) => {
         }
     }, [])
 
-    const Increment = () => {
+    const Increment = useCallback(() => {
         if (props.maxValue >= workingValue + 1) {
             setWorkingValue(workingValue + 1)
         }
         if (props.maxValue - 1 === workingValue) {
             setDisabledInc(true)
         }
-    }
-    const Reset = () => {
+    }, [])
+    const Reset = useCallback(() => {
         setWorkingValue(valueLocalSorage)
         setDisabledInc(false)
-    }
+    }, [])
     let disabled = props.disabledMax || props.disabledStart || disabledInc;
+    console.log("Info render")
     return <div className={s.controlInformationPanel}>
         <div className={disabledInc ? s.errorInfo : s.info}>
             {props.disabledMax ?

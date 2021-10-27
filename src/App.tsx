@@ -7,7 +7,7 @@ import InformationPanel from "./InformationPanel";
 const App = () => {
 
     const [startValue, setStartValue] = useState<number>(0);
-    const [maxValue, setMaxValue] = useState<number>(10);
+    const [maxValue, setMaxValue] = useState<number>(0);
     const [value, setValue] = useState<number>(0);
     const [disabledStartValue, setDisabledStartValue] = useState(false)
     const [disabledMaxValue, setDisabledMaxValue] = useState(false)
@@ -23,7 +23,10 @@ const App = () => {
         if (propStartValue < 0) {
             setDisabledStartValue(true)
         }
-        if (propStartValue >= 0) {
+        if (propStartValue >= maxValue) {
+            setDisabledStartValue(true)
+        }
+        if (propStartValue >= 0 && propStartValue < maxValue) {
             setDisabledStartValue(false)
         }
         propStartValue > startValue ? setStartValue(startValue + 1) : setStartValue(startValue - 1)
