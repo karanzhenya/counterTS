@@ -13,11 +13,13 @@ type InformationPanelType = {
 
 const InformationPanel = React.memo((props: InformationPanelType) => {
     const [workingValue, setWorkingValue] = useState(props.value)
-    const [disabledInc, setDisabledInc] = useState(false)
+    const [disabledInc, setDisabledIncButton] = useState(false)
+
     let valueLocalSorage = Number(localStorage.getItem("startValue"))
     useEffect(() => {
         setWorkingValue(props.value)
     }, [props.value])
+
     useEffect(() => {
         if (workingValue !== valueLocalSorage) {
             setWorkingValue(valueLocalSorage)
@@ -29,15 +31,15 @@ const InformationPanel = React.memo((props: InformationPanelType) => {
             setWorkingValue(workingValue + 1)
         }
         if (props.maxValue - 1 === workingValue) {
-            setDisabledInc(true)
+            setDisabledIncButton(true)
         }
     }
     const Reset = () => {
         setWorkingValue(valueLocalSorage)
-        setDisabledInc(false)
+        setDisabledIncButton(false)
     }
     let disabled = props.disabledMax || props.disabledStart || disabledInc;
-    //console.log("Info render")
+
     return <div className={s.controlInformationPanel}>
         <div className={disabledInc ? s.errorInfo : s.info}>
             {props.disabledMax ?

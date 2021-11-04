@@ -11,15 +11,15 @@ const App = () => {
     const [value, setValue] = useState<number>(0);
     const [disabledStartValue, setDisabledStartValue] = useState(false)
     const [disabledMaxValue, setDisabledMaxValue] = useState(false)
-
+//take startValue and maxValue from localStorage on first render
     useEffect(() => {
-        let localStorageStartValue = Number(localStorage.getItem("startValue"))
-        let localStorageMaxValue = Number(localStorage.getItem("maxValue"))
-        setStartValue(localStorageStartValue)
-        setMaxValue(localStorageMaxValue)
+        setStartValue(Number(localStorage.getItem("startValue")))
+        setMaxValue(Number(localStorage.getItem("maxValue")))
     }, [])
 
+    //set start value in local state
     const startValueSuccess = (newStartValue: number) => {
+        //check incoming value from callback
         if (newStartValue < 0) {
             setDisabledStartValue(true)
         }
@@ -31,7 +31,9 @@ const App = () => {
         }
         newStartValue > startValue ? setStartValue(startValue + 1) : setStartValue(startValue - 1)
     };
+    //set max value in local state
     const maxValueSuccess = (newMaxValue: number) => {
+        //check incoming value from callback
         if (newMaxValue <= startValue) {
             setDisabledMaxValue(true)
         }
@@ -40,6 +42,7 @@ const App = () => {
         }
         newMaxValue > maxValue ? setMaxValue(maxValue + 1) : setMaxValue(maxValue - 1)
     };
+    //set start value in local state for props Inforamtion Panel, set startValue and maxValue in local storage
     const valueSuccess = () => {
         setValue(startValue)
         localStorage.setItem("startValue", String(startValue))
