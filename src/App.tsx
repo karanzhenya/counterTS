@@ -19,26 +19,26 @@ const App = () => {
         setMaxValue(localStorageMaxValue)
     }, [])
 
-    const startValueSuccess = (propStartValue: number) => {
-        if (propStartValue < 0) {
+    const startValueSuccess = (newStartValue: number) => {
+        if (newStartValue < 0) {
             setDisabledStartValue(true)
         }
-        if (propStartValue >= maxValue) {
+        if (newStartValue >= maxValue) {
             setDisabledStartValue(true)
         }
-        if (propStartValue >= 0 && propStartValue < maxValue) {
+        if (newStartValue >= 0 && newStartValue < maxValue) {
             setDisabledStartValue(false)
         }
-        propStartValue > startValue ? setStartValue(startValue + 1) : setStartValue(startValue - 1)
+        newStartValue > startValue ? setStartValue(startValue + 1) : setStartValue(startValue - 1)
     };
-    const maxValueSuccess = (propMaxValue: number) => {
-        if (propMaxValue <= startValue){
+    const maxValueSuccess = (newMaxValue: number) => {
+        if (newMaxValue <= startValue) {
             setDisabledMaxValue(true)
         }
-        if (propMaxValue > startValue) {
+        if (newMaxValue > startValue) {
             setDisabledMaxValue(false)
         }
-        propMaxValue > maxValue ? setMaxValue(maxValue + 1) : setMaxValue(maxValue - 1)
+        newMaxValue > maxValue ? setMaxValue(maxValue + 1) : setMaxValue(maxValue - 1)
     };
     const valueSuccess = () => {
         setValue(startValue)

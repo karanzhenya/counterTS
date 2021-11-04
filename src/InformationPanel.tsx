@@ -24,20 +24,20 @@ const InformationPanel = React.memo((props: InformationPanelType) => {
         }
     }, [])
 
-    const Increment = useCallback(() => {
+    const Increment = () => {
         if (props.maxValue >= workingValue + 1) {
             setWorkingValue(workingValue + 1)
         }
         if (props.maxValue - 1 === workingValue) {
             setDisabledInc(true)
         }
-    }, [])
-    const Reset = useCallback(() => {
+    }
+    const Reset = () => {
         setWorkingValue(valueLocalSorage)
         setDisabledInc(false)
-    }, [])
+    }
     let disabled = props.disabledMax || props.disabledStart || disabledInc;
-    console.log("Info render")
+    //console.log("Info render")
     return <div className={s.controlInformationPanel}>
         <div className={disabledInc ? s.errorInfo : s.info}>
             {props.disabledMax ?
