@@ -15,14 +15,14 @@ const InformationPanel = React.memo((props: InformationPanelType) => {
     const [workingValue, setWorkingValue] = useState(props.value)
     const [disabledInc, setDisabledIncButton] = useState(false)
 
-    let valueLocalSorage = Number(localStorage.getItem("startValue"))
+    let valueLocalStorage = Number(localStorage.getItem("startValue"))
     useEffect(() => {
         setWorkingValue(props.value)
     }, [props.value])
 
     useEffect(() => {
-        if (workingValue !== valueLocalSorage) {
-            setWorkingValue(valueLocalSorage)
+        if (workingValue !== valueLocalStorage) {
+            setWorkingValue(valueLocalStorage)
         }
     }, [])
 
@@ -35,7 +35,7 @@ const InformationPanel = React.memo((props: InformationPanelType) => {
         }
     }
     const Reset = () => {
-        setWorkingValue(valueLocalSorage)
+        setWorkingValue(valueLocalStorage)
         setDisabledIncButton(false)
     }
     let disabled = props.disabledMax || props.disabledStart || disabledInc;
