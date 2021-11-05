@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import s from './App.module.css';
 import Settings from "./Settings";
 import InformationPanel from "./InformationPanel";
@@ -11,15 +11,8 @@ const AppWithRedux = () => {
 
     const dispatch = useDispatch();
     const state = useSelector<RootStateType, stateType>(state => state.counter)
-    //const [dataValues, setDatasValues] = useState({startValue: state.startValue, maxValue: state.maxValue})
     const [disabledStartValue, setDisabledStartValue] = useState(false)
     const [disabledMaxValue, setDisabledMaxValue] = useState(false)
-
-    /*useEffect(() => {
-        dispatch(changeStartValueAC(Number(localStorage.getItem("startValue"))))
-        dispatch(changeMaxValueAC(Number(localStorage.getItem("maxValue"))))
-    }, [])*/
-
 
     const startValueSuccess = (newStartValue: number) => {
         if (newStartValue < 0) {
@@ -30,6 +23,7 @@ const AppWithRedux = () => {
         }
         if (newStartValue >= 0 && newStartValue < state.maxValue) {
             setDisabledStartValue(false)
+            setDisabledMaxValue(false)
         }
         dispatch(changeStartValueAC(newStartValue))
     };
@@ -39,6 +33,7 @@ const AppWithRedux = () => {
         }
         if (newMaxValue > state.startValue) {
             setDisabledMaxValue(false)
+            setDisabledStartValue(false)
         }
         dispatch(changeMaxValueAC(newMaxValue))
     };

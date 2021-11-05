@@ -7,10 +7,9 @@
     <list default="true" id="d5bf5ae1-8784-4f12-b839-05fd58f71c6a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InformationPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/InformationPanel.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppWithRedux.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppWithRedux.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Customization.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customization.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/counterReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/counterReducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +97,7 @@
       <workItem from="1635353244313" duration="600000" />
       <workItem from="1636056563547" duration="3752000" />
       <workItem from="1636107940341" duration="680000" />
-      <workItem from="1636135982143" duration="5556000" />
+      <workItem from="1636135982143" duration="10223000" />
     </task>
     <servers />
   </component>
