@@ -8,8 +8,14 @@
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AppWithRedux.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppWithRedux.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Button.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Customization.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customization.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EnterCustomization.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/EnterCustomization.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InformationPanel.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/InformationPanel.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Settings.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Settings.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/redux/counterReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/counterReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/redux/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/store.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +46,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -55,6 +61,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\counter\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\counter\src\utils" />
     </key>
   </component>
   <component name="RunManager" selected="npm.npm start">
@@ -97,7 +106,12 @@
       <workItem from="1635353244313" duration="600000" />
       <workItem from="1636056563547" duration="3752000" />
       <workItem from="1636107940341" duration="680000" />
-      <workItem from="1636135982143" duration="10223000" />
+      <workItem from="1636135982143" duration="11433000" />
+      <workItem from="1636151948710" duration="54000" />
+      <workItem from="1636187568137" duration="1807000" />
+      <workItem from="1638955639643" duration="595000" />
+      <workItem from="1638967531083" duration="46000" />
+      <workItem from="1638969938291" duration="1777000" />
     </task>
     <servers />
   </component>

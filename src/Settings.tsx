@@ -1,7 +1,7 @@
 import React from 'react';
-import s from './App.module.css';
 import Customization from "./Customization";
 import EnterCustomization from "./EnterCustomization";
+import s from './App.module.css';
 
 
 type SettingsPropsType = {
@@ -15,7 +15,6 @@ type SettingsPropsType = {
 }
 
 const Settings = React.memo((props: SettingsPropsType) => {
-    //console.log("Setting render")
     return <div className={s.settings}>
         <Customization maxValue={props.maxValue}
                        startValue={props.startValue}

@@ -1,6 +1,7 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import Button from "./utils/Button";
+import Info from "./utils/Info";
 import s from './App.module.css';
-import Button from "./Button";
 
 
 type InformationPanelType = {
@@ -15,7 +16,6 @@ const InformationPanel = React.memo((props: InformationPanelType) => {
     const [workingValue, setWorkingValue] = useState(props.value)
     const [disabledInc, setDisabledIncButton] = useState(false)
 
-    let valueLocalStorage = Number(localStorage.getItem("startValue"))
     useEffect(() => {
         setWorkingValue(props.value)
     }, [props.value])
@@ -25,6 +25,8 @@ const InformationPanel = React.memo((props: InformationPanelType) => {
             setWorkingValue(valueLocalStorage)
         }
     }, [])
+
+    let valueLocalStorage = Number(localStorage.getItem("startValue"))
 
     const Increment = () => {
         if (props.maxValue >= workingValue + 1) {
@@ -41,12 +43,7 @@ const InformationPanel = React.memo((props: InformationPanelType) => {
     let disabled = props.disabledMax || props.disabledStart || disabledInc;
 
     return <div className={s.controlInformationPanel}>
-        <div className={disabledInc ? s.errorInfo : s.info}>
-            {props.disabledMax ?
-                <div className={s.error}>maximum value cannot be equal to the starting</div> : props.disabledStart ?
-                    <div className={s.error}>starting value cannot be less than zero</div> : <h1>{workingValue}</h1>
-            }
-        </div>
+        <Info disabledInc={disabledInc} disabledStart={props.disabledStart} disabledMax={props.disabledMax} workingValue={workingValue}/>
         <div className={s.control}>
             <Button onClick={Increment} disabled={disabled}>Inc</Button>
             <Button onClick={Reset}>Reset</Button>

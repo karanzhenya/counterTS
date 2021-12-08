@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import s from './App.module.css';
+import {useDispatch, useSelector} from "react-redux";
 import Settings from "./Settings";
 import InformationPanel from "./InformationPanel";
-import {useDispatch, useSelector} from "react-redux";
-import {RootStateType} from './redux/store';
 import {changeMaxValueAC, changeStartValueAC, changeValueAC, stateType} from "./redux/counterReducer";
+import {RootStateType} from './redux/store';
+import s from './App.module.css';
 
 
 const AppWithRedux = () => {

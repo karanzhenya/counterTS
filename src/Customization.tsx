@@ -14,13 +14,14 @@ const Customization = React.memo((props: CustomizationPropsType) => {
 
     const [startValue, setStartValue] = useState(props.startValue)
     const [maxValue, setMaxValue] = useState(props.maxValue)
-
+    const localStartValue = Number(localStorage.getItem("startValue"))
+    const localMaxValue = Number(localStorage.getItem("maxValue"))
 
     useEffect(() => {
         setStartValue(Number(localStorage.getItem("startValue")))
         setMaxValue(Number(localStorage.getItem("maxValue")))
-        props.startValueSuccess(Number(localStorage.getItem("startValue")))
-        props.maxValueSuccess(Number(localStorage.getItem("maxValue")))
+        props.startValueSuccess(localStartValue)
+        props.maxValueSuccess(localMaxValue)
     }, [])
 
     const onChangeStartValue = (e: ChangeEvent<HTMLInputElement>) => {
