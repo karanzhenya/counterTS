@@ -28,25 +28,18 @@ const initialState: stateType = {
 export const counterReducer = (state: stateType = initialState, action: ActionsType) => {
     switch (action.type) {
         case 'CHANGE-START-VALUE': {
-            const stateCopy = {...state}
-            stateCopy.startValue = action.newStartValue
-            return stateCopy
+            return {...state, startValue: action.newStartValue}
         }
         case 'CHANGE-MAX-VALUE': {
-            const stateCopy = {...state}
-            stateCopy.maxValue = action.newMaxValue
-            return stateCopy
+            return {...state, maxValue: action.newMaxValue}
         }
         case 'CHANGE-VALUE': {
-            const stateCopy = {...state}
-            stateCopy.value = action.newValue
-            return stateCopy
+            return {...state, value: action.newValue}
         }
         default:
             return state;
     }
 }
-
 
 export const changeStartValueAC = (newStartValue: number) => {
     return {type: 'CHANGE-START-VALUE', newStartValue}

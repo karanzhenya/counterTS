@@ -1,5 +1,5 @@
 import React, {ChangeEvent, useEffect, useState} from 'react';
-import s from './App.module.css';
+import s from '../App.module.css';
 
 type CustomizationPropsType = {
     maxValue: number

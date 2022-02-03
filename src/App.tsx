@@ -1,57 +1,51 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import Settings from "./components/Settings";
+import InformationPanel from "./components/InformationPanel";
+import {changeMaxValueAC, changeStartValueAC, changeValueAC, stateType} from "./redux/counterReducer";
+import {RootStateType} from './redux/store';
 import s from './App.module.css';
-import Settings from "./Settings";
-import InformationPanel from "./InformationPanel";
 
 
 const App = () => {
 
-    const [startValue, setStartValue] = useState<number>(0);
-    const [maxValue, setMaxValue] = useState<number>(0);
-    const [value, setValue] = useState<number>(0);
+    const dispatch = useDispatch();
+    const state = useSelector<RootStateType, stateType>(state => state.counter)
     const [disabledStartValue, setDisabledStartValue] = useState(false)
     const [disabledMaxValue, setDisabledMaxValue] = useState(false)
-//take startValue and maxValue from localStorage on first render
-    useEffect(() => {
-        setStartValue(Number(localStorage.getItem("startValue")))
-        setMaxValue(Number(localStorage.getItem("maxValue")))
-    }, [])
 
-    //set start value in local state
     const startValueSuccess = (newStartValue: number) => {
-        //check incoming value from callback
         if (newStartValue < 0) {
             setDisabledStartValue(true)
         }
-        if (newStartValue >= maxValue) {
+        if (newStartValue >= state.maxValue) {
             setDisabledStartValue(true)
         }
-        if (newStartValue >= 0 && newStartValue < maxValue) {
+        if (newStartValue >= 0 && newStartValue < state.maxValue) {
             setDisabledStartValue(false)
-        }
-        newStartValue > startValue ? setStartValue(startValue + 1) : setStartValue(startValue - 1)
-    };
-    //set max value in local state
-    const maxValueSuccess = (newMaxValue: number) => {
-        //check incoming value from callback
-        if (newMaxValue <= startValue) {
-            setDisabledMaxValue(true)
-        }
-        if (newMaxValue > startValue) {
             setDisabledMaxValue(false)
         }
-        newMaxValue > maxValue ? setMaxValue(maxValue + 1) : setMaxValue(maxValue - 1)
+        dispatch(changeStartValueAC(newStartValue))
     };
-    //set start value in local state for props Inforamtion Panel, set startValue and maxValue in local storage
+    const maxValueSuccess = (newMaxValue: number) => {
+        if (newMaxValue <= state.startValue) {
+            setDisabledMaxValue(true)
+        }
+        if (newMaxValue > state.startValue) {
+            setDisabledMaxValue(false)
+            setDisabledStartValue(false)
+        }
+        dispatch(changeMaxValueAC(newMaxValue))
+    };
     const valueSuccess = () => {
-        setValue(startValue)
-        localStorage.setItem("startValue", String(startValue))
-        localStorage.setItem("maxValue", String(maxValue))
+        dispatch(changeValueAC(state.startValue))
+        localStorage.setItem("startValue", String(state.startValue))
+        localStorage.setItem("maxValue", String(state.maxValue))
     };
     return <div className={s.appWrapper}>
         <div className={s.settingsBlock}>
-            <Settings maxValue={maxValue}
-                      startValue={startValue}
+            <Settings maxValue={state.maxValue}
+                      startValue={state.startValue}
                       startValueSuccess={startValueSuccess}
                       maxValueSuccess={maxValueSuccess}
                       valueSuccess={valueSuccess}
@@ -60,8 +54,8 @@ const App = () => {
             />
         </div>
         <div className={s.informationPanelBlock}>
-            <InformationPanel value={value}
-                              maxValue={maxValue}
+            <InformationPanel value={state.value}
+                              maxValue={state.maxValue}
                               disabledMax={disabledMaxValue}
                               disabledStart={disabledStartValue}/>
         </div>

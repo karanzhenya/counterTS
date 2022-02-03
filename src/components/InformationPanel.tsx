@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import Button from "./utils/Button";
-import Info from "./utils/Info";
-import s from './App.module.css';
+import Button from "../common/Button";
+import Info from "../common/Info";
+import s from '../App.module.css';
 
 
 type InformationPanelType = {

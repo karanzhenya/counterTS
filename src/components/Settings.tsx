@@ -1,7 +1,7 @@
 import React from 'react';
 import Customization from "./Customization";
 import EnterCustomization from "./EnterCustomization";
-import s from './App.module.css';
+import s from '../App.module.css';
 
 
 type SettingsPropsType = {

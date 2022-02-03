@@ -1,6 +1,6 @@
 import React from 'react';
-import s from './App.module.css';
-import Button from "./utils/Button";
+import s from '../App.module.css';
+import Button from "../common/Button";
 
 type EnterCustomizationPropsType = {
     valueSuccess: () => void
